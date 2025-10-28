@@ -1,0 +1,7 @@
+com\example\reminder\repository\EventRepository.class
+com\example\reminder\ReminderApplication.class
+com\example\reminder\config\SwaggerConfig.class
+com\example\reminder\exception\GlobalExceptionHandler.class
+com\example\reminder\service\EventService.class
+com\example\reminder\model\Event.class
+com\example\reminder\controller\EventController.class
