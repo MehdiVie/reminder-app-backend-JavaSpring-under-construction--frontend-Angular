@@ -1,102 +1,327 @@
-2025-11-26T15:37:29.129+01:00  INFO 58740 --- [reminder] [main] c.example.reminder.ReminderApplication   : Starting ReminderApplication using Java 21.0.8 with PID 58740 (C:\Java-Spring\reminder\target\classes started by zhila in C:\Java-Spring\reminder)
-2025-11-26T15:37:29.191+01:00  INFO 58740 --- [reminder] [main] c.example.reminder.ReminderApplication   : No active profile set, falling back to 1 default profile: "default"
-2025-11-26T15:37:33.673+01:00  INFO 58740 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-11-26T15:37:34.140+01:00  INFO 58740 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 438 ms. Found 4 JPA repository interfaces.
-2025-11-26T15:37:37.493+01:00  INFO 58740 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
-2025-11-26T15:37:37.544+01:00  INFO 58740 --- [reminder] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-11-26T15:37:37.544+01:00  INFO 58740 --- [reminder] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
-2025-11-26T15:37:37.772+01:00  INFO 58740 --- [reminder] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-11-26T15:37:37.773+01:00  INFO 58740 --- [reminder] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 8330 ms
-2025-11-26T15:37:38.541+01:00  INFO 58740 --- [reminder] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-11-26T15:37:39.119+01:00  INFO 58740 --- [reminder] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-11-26T15:37:39.307+01:00  INFO 58740 --- [reminder] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-11-26T15:37:40.439+01:00  INFO 58740 --- [reminder] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-11-26T15:37:40.546+01:00  INFO 58740 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-11-26T15:37:41.025+01:00  INFO 58740 --- [reminder] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3d8d52be
-2025-11-26T15:37:41.030+01:00  INFO 58740 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-11-26T15:37:41.228+01:00  WARN 58740 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-11-26T15:37:41.232+01:00  WARN 58740 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-11-26T15:37:44.203+01:00  INFO 58740 --- [reminder] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-11-26T15:37:44.961+01:00  INFO 58740 --- [reminder] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-11-26T15:37:45.761+01:00  INFO 58740 --- [reminder] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-11-26T15:37:49.004+01:00  INFO 58740 --- [reminder] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2025-11-26T15:37:49.008+01:00  WARN 58740 --- [reminder] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
-2025-11-26T15:37:49.502+01:00  WARN 58740 --- [reminder] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-11-26T15:37:51.616+01:00  INFO 58740 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
-2025-11-26T15:37:51.647+01:00  INFO 58740 --- [reminder] [main] c.example.reminder.ReminderApplication   : Started ReminderApplication in 24.863 seconds (process running for 26.572)
-2025-11-26T15:37:57.696+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-11-26T15:37:57.696+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-11-26T15:37:57.699+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-11-26T15:37:59.008+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-6] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T17:45:46.740+01:00  WARN 58740 --- [reminder] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h59m5s419ms101µs600ns).
-2025-11-26T21:18:59.425+01:00  WARN 58740 --- [reminder] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h33m16s717ms413µs900ns).
-2025-11-26T21:22:33.019+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-1] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T21:24:42.930+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-1] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T21:25:52.291+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-7] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T21:29:07.608+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-1] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T21:29:09.665+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-2] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T21:29:13.792+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-6] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T21:40:57.850+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-2] c.e.reminder.controller.EventController  : Post /api/events -> created id=43 , title=Test-New-Version
-2025-11-26T21:41:00.393+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-6] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T21:41:02.237+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-9] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=1 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T21:43:10.638+01:00  INFO 58740 --- [reminder] [scheduling-1] c.example.reminder.service.EventService  : Proccessed 1 reminders at 2025-11-26T21:43:10 
-2025-11-26T21:43:13.711+01:00  INFO 58740 --- [reminder] [task-1] c.example.reminder.service.EmailService  : HTML reminder email sent to salimimehdi@yahoo.com
-2025-11-26T21:45:13.517+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-6] c.e.reminder.controller.EventController  : Put /api/events/43 -> updated
-2025-11-26T21:45:13.653+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-9] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=1 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T21:52:32.466+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-8] c.e.reminder.controller.EventController  : Put /api/events/43 -> updated
-2025-11-26T21:52:32.606+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-10] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=1 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T21:54:15.774+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-8] c.e.reminder.controller.EventController  : Put /api/events/43 -> updated
-2025-11-26T21:54:15.896+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-10] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=1 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T21:58:12.146+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-8] c.e.reminder.controller.EventController  : Put /api/events/43 -> updated
-2025-11-26T21:58:12.271+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-10] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=1 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T22:02:58.557+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-10] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T22:03:14.584+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-2] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T22:03:17.591+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-3] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T22:03:35.544+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-5] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T22:03:38.620+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-9] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T22:04:48.865+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-2] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=1 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T22:05:03.210+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-6] c.e.reminder.controller.EventController  : Put /api/events/43 -> updated
-2025-11-26T22:05:03.329+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-9] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=1 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T22:06:31.287+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-6] c.e.reminder.controller.EventController  : Put /api/events/43 -> updated
-2025-11-26T22:06:31.417+01:00  INFO 58740 --- [reminder] [http-nio-9090-exec-9] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=1 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T22:06:59.106+01:00  INFO 58740 --- [reminder] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-11-26T22:06:59.122+01:00  INFO 58740 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-11-26T22:06:59.130+01:00  INFO 58740 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-11-26T22:07:05.047+01:00  INFO 76020 --- [reminder] [main] c.example.reminder.ReminderApplication   : Starting ReminderApplication using Java 21.0.8 with PID 76020 (C:\Java-Spring\reminder\target\classes started by zhila in C:\Java-Spring\reminder)
-2025-11-26T22:07:05.050+01:00  INFO 76020 --- [reminder] [main] c.example.reminder.ReminderApplication   : No active profile set, falling back to 1 default profile: "default"
-2025-11-26T22:07:06.769+01:00  INFO 76020 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-11-26T22:07:06.888+01:00  INFO 76020 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99 ms. Found 4 JPA repository interfaces.
-2025-11-26T22:07:08.175+01:00  INFO 76020 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
-2025-11-26T22:07:08.203+01:00  INFO 76020 --- [reminder] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-11-26T22:07:08.204+01:00  INFO 76020 --- [reminder] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
-2025-11-26T22:07:08.442+01:00  INFO 76020 --- [reminder] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-11-26T22:07:08.443+01:00  INFO 76020 --- [reminder] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3314 ms
-2025-11-26T22:07:09.559+01:00  INFO 76020 --- [reminder] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-11-26T22:07:09.698+01:00  INFO 76020 --- [reminder] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-11-26T22:07:09.744+01:00  INFO 76020 --- [reminder] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-11-26T22:07:10.343+01:00  INFO 76020 --- [reminder] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-11-26T22:07:10.419+01:00  INFO 76020 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-11-26T22:07:10.685+01:00  INFO 76020 --- [reminder] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@17f8db6
-2025-11-26T22:07:10.687+01:00  INFO 76020 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-11-26T22:07:10.759+01:00  WARN 76020 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-11-26T22:07:10.760+01:00  WARN 76020 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-11-26T22:07:12.019+01:00  INFO 76020 --- [reminder] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-11-26T22:07:12.155+01:00  INFO 76020 --- [reminder] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-11-26T22:07:12.500+01:00  INFO 76020 --- [reminder] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-11-26T22:07:13.782+01:00  INFO 76020 --- [reminder] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2025-11-26T22:07:13.784+01:00  WARN 76020 --- [reminder] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
-2025-11-26T22:07:13.987+01:00  WARN 76020 --- [reminder] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-11-26T22:07:14.994+01:00  INFO 76020 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
-2025-11-26T22:07:15.012+01:00  INFO 76020 --- [reminder] [main] c.example.reminder.ReminderApplication   : Started ReminderApplication in 10.862 seconds (process running for 11.534)
-2025-11-26T22:07:15.197+01:00  INFO 76020 --- [reminder] [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-11-26T22:07:15.197+01:00  INFO 76020 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-11-26T22:07:15.199+01:00  INFO 76020 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2025-11-26T22:08:15.942+01:00  INFO 76020 --- [reminder] [http-nio-9090-exec-4] c.e.reminder.controller.EventController  : Put /api/events/43 -> updated
-2025-11-26T22:08:16.108+01:00  INFO 76020 --- [reminder] [http-nio-9090-exec-2] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=1 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T22:08:53.748+01:00  INFO 76020 --- [reminder] [http-nio-9090-exec-5] c.e.reminder.controller.EventController  : Put /api/events/43 -> updated
-2025-11-26T22:08:53.876+01:00  INFO 76020 --- [reminder] [http-nio-9090-exec-9] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=1 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
-2025-11-26T22:11:15.284+01:00  INFO 76020 --- [reminder] [scheduling-1] c.example.reminder.service.EventService  : Proccessed 1 reminders at 2025-11-26T22:11:15 
-2025-11-26T22:11:17.803+01:00  INFO 76020 --- [reminder] [task-1] c.example.reminder.service.EmailService  : HTML reminder email sent to salimimehdi@yahoo.com
-2025-11-26T22:13:04.577+01:00  INFO 76020 --- [reminder] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-11-26T22:13:04.580+01:00  INFO 76020 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-11-26T22:13:04.590+01:00  INFO 76020 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-01T00:09:54.178+01:00  INFO 19896 --- [reminder] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:09:54.200+01:00  INFO 19896 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-01T00:09:54.206+01:00  INFO 19896 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-01T00:30:04.705+01:00  INFO 38196 --- [reminder] [main] c.example.reminder.ReminderApplication   : Starting ReminderApplication using Java 21.0.8 with PID 38196 (C:\Java-Spring\reminder\target\classes started by zhila in C:\Java-Spring\reminder)
+2025-12-01T00:30:04.705+01:00  INFO 38196 --- [reminder] [main] c.example.reminder.ReminderApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-12-01T00:30:05.894+01:00  INFO 38196 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-01T00:30:06.004+01:00  INFO 38196 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 97 ms. Found 4 JPA repository interfaces.
+2025-12-01T00:30:07.015+01:00  INFO 38196 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-12-01T00:30:07.038+01:00  INFO 38196 --- [reminder] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-01T00:30:07.038+01:00  INFO 38196 --- [reminder] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-12-01T00:30:07.140+01:00  INFO 38196 --- [reminder] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-01T00:30:07.140+01:00  INFO 38196 --- [reminder] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2364 ms
+2025-12-01T00:30:07.412+01:00  INFO 38196 --- [reminder] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-01T00:30:07.551+01:00  INFO 38196 --- [reminder] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-12-01T00:30:07.598+01:00  INFO 38196 --- [reminder] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-01T00:30:08.070+01:00  INFO 38196 --- [reminder] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-01T00:30:08.118+01:00  INFO 38196 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-01T00:30:08.275+01:00  INFO 38196 --- [reminder] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7aa3857b
+2025-12-01T00:30:08.287+01:00  INFO 38196 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-01T00:30:08.348+01:00  WARN 38196 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-01T00:30:08.348+01:00  WARN 38196 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-01T00:30:09.558+01:00  INFO 38196 --- [reminder] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-01T00:30:09.672+01:00  INFO 38196 --- [reminder] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:30:09.953+01:00  INFO 38196 --- [reminder] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-01T00:30:11.126+01:00  INFO 38196 --- [reminder] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-01T00:30:11.130+01:00  WARN 38196 --- [reminder] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-12-01T00:30:11.296+01:00  WARN 38196 --- [reminder] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01T00:30:12.110+01:00  INFO 38196 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-12-01T00:30:12.123+01:00  INFO 38196 --- [reminder] [main] c.example.reminder.ReminderApplication   : Started ReminderApplication in 8.049 seconds (process running for 8.505)
+2025-12-01T00:30:17.831+01:00  INFO 38196 --- [reminder] [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-01T00:30:17.831+01:00  INFO 38196 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-01T00:30:17.831+01:00  INFO 38196 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-01T00:33:12.829+01:00  INFO 38196 --- [reminder] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:33:12.845+01:00  INFO 38196 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-01T00:33:12.845+01:00  INFO 38196 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-01T00:33:17.037+01:00  INFO 34784 --- [reminder] [main] c.example.reminder.ReminderApplication   : Starting ReminderApplication using Java 21.0.8 with PID 34784 (C:\Java-Spring\reminder\target\classes started by zhila in C:\Java-Spring\reminder)
+2025-12-01T00:33:17.052+01:00  INFO 34784 --- [reminder] [main] c.example.reminder.ReminderApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-12-01T00:33:18.320+01:00  INFO 34784 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-01T00:33:18.419+01:00  INFO 34784 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 4 JPA repository interfaces.
+2025-12-01T00:33:19.460+01:00  INFO 34784 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-12-01T00:33:19.547+01:00  INFO 34784 --- [reminder] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-01T00:33:19.547+01:00  INFO 34784 --- [reminder] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-12-01T00:33:19.747+01:00  INFO 34784 --- [reminder] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-01T00:33:19.749+01:00  INFO 34784 --- [reminder] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2633 ms
+2025-12-01T00:33:20.043+01:00  INFO 34784 --- [reminder] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-01T00:33:20.149+01:00  INFO 34784 --- [reminder] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-12-01T00:33:20.203+01:00  INFO 34784 --- [reminder] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-01T00:33:20.727+01:00  INFO 34784 --- [reminder] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-01T00:33:20.779+01:00  INFO 34784 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-01T00:33:20.999+01:00  INFO 34784 --- [reminder] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@500ec769
+2025-12-01T00:33:21.015+01:00  INFO 34784 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-01T00:33:21.047+01:00  WARN 34784 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-01T00:33:21.047+01:00  WARN 34784 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-01T00:33:22.079+01:00  INFO 34784 --- [reminder] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-01T00:33:22.191+01:00  INFO 34784 --- [reminder] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:33:22.445+01:00  INFO 34784 --- [reminder] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-01T00:33:23.537+01:00  INFO 34784 --- [reminder] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-01T00:33:23.537+01:00  WARN 34784 --- [reminder] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-12-01T00:33:23.743+01:00  WARN 34784 --- [reminder] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01T00:33:24.667+01:00  INFO 34784 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-12-01T00:33:24.675+01:00  INFO 34784 --- [reminder] [main] c.example.reminder.ReminderApplication   : Started ReminderApplication in 8.263 seconds (process running for 8.716)
+2025-12-01T00:33:32.764+01:00  INFO 34784 --- [reminder] [http-nio-9090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-01T00:33:32.765+01:00  INFO 34784 --- [reminder] [http-nio-9090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-01T00:33:32.766+01:00  INFO 34784 --- [reminder] [http-nio-9090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-01T00:35:37.227+01:00  INFO 34784 --- [reminder] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:35:37.227+01:00  INFO 34784 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-01T00:35:37.227+01:00  INFO 34784 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-01T00:35:41.743+01:00  INFO 35596 --- [reminder] [main] c.example.reminder.ReminderApplication   : Starting ReminderApplication using Java 21.0.8 with PID 35596 (C:\Java-Spring\reminder\target\classes started by zhila in C:\Java-Spring\reminder)
+2025-12-01T00:35:41.747+01:00  INFO 35596 --- [reminder] [main] c.example.reminder.ReminderApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-12-01T00:35:43.050+01:00  INFO 35596 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-01T00:35:43.138+01:00  INFO 35596 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 4 JPA repository interfaces.
+2025-12-01T00:35:44.092+01:00  INFO 35596 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-12-01T00:35:44.117+01:00  INFO 35596 --- [reminder] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-01T00:35:44.117+01:00  INFO 35596 --- [reminder] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-12-01T00:35:44.212+01:00  INFO 35596 --- [reminder] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-01T00:35:44.212+01:00  INFO 35596 --- [reminder] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2394 ms
+2025-12-01T00:35:44.450+01:00  INFO 35596 --- [reminder] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-01T00:35:44.565+01:00  INFO 35596 --- [reminder] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-12-01T00:35:44.619+01:00  INFO 35596 --- [reminder] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-01T00:35:45.036+01:00  INFO 35596 --- [reminder] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-01T00:35:45.068+01:00  INFO 35596 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-01T00:35:45.265+01:00  INFO 35596 --- [reminder] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7aa3857b
+2025-12-01T00:35:45.265+01:00  INFO 35596 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-01T00:35:45.305+01:00  WARN 35596 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-01T00:35:45.305+01:00  WARN 35596 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-01T00:35:46.330+01:00  INFO 35596 --- [reminder] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-01T00:35:46.412+01:00  INFO 35596 --- [reminder] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:35:46.697+01:00  INFO 35596 --- [reminder] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-01T00:35:47.732+01:00  INFO 35596 --- [reminder] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-01T00:35:47.732+01:00  WARN 35596 --- [reminder] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-12-01T00:35:47.903+01:00  WARN 35596 --- [reminder] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01T00:35:48.733+01:00  INFO 35596 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-12-01T00:35:48.743+01:00  INFO 35596 --- [reminder] [main] c.example.reminder.ReminderApplication   : Started ReminderApplication in 7.618 seconds (process running for 8.127)
+2025-12-01T00:35:54.333+01:00  INFO 35596 --- [reminder] [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-01T00:35:54.333+01:00  INFO 35596 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-01T00:35:54.334+01:00  INFO 35596 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-01T00:36:56.190+01:00  INFO 35596 --- [reminder] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:36:56.194+01:00  INFO 35596 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-01T00:36:56.202+01:00  INFO 35596 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-01T00:37:00.232+01:00  INFO 9248 --- [reminder] [main] c.example.reminder.ReminderApplication   : Starting ReminderApplication using Java 21.0.8 with PID 9248 (C:\Java-Spring\reminder\target\classes started by zhila in C:\Java-Spring\reminder)
+2025-12-01T00:37:00.235+01:00  INFO 9248 --- [reminder] [main] c.example.reminder.ReminderApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-12-01T00:37:01.677+01:00  INFO 9248 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-01T00:37:01.772+01:00  INFO 9248 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 4 JPA repository interfaces.
+2025-12-01T00:37:02.834+01:00  INFO 9248 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-12-01T00:37:02.856+01:00  INFO 9248 --- [reminder] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-01T00:37:02.856+01:00  INFO 9248 --- [reminder] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-12-01T00:37:02.945+01:00  INFO 9248 --- [reminder] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-01T00:37:02.945+01:00  INFO 9248 --- [reminder] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2644 ms
+2025-12-01T00:37:03.190+01:00  INFO 9248 --- [reminder] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-01T00:37:03.279+01:00  INFO 9248 --- [reminder] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-12-01T00:37:03.329+01:00  INFO 9248 --- [reminder] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-01T00:37:03.756+01:00  INFO 9248 --- [reminder] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-01T00:37:03.788+01:00  INFO 9248 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-01T00:37:03.959+01:00  INFO 9248 --- [reminder] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@500ec769
+2025-12-01T00:37:03.961+01:00  INFO 9248 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-01T00:37:04.006+01:00  WARN 9248 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-01T00:37:04.007+01:00  WARN 9248 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-01T00:37:05.095+01:00  INFO 9248 --- [reminder] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-01T00:37:05.193+01:00  INFO 9248 --- [reminder] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:37:05.482+01:00  INFO 9248 --- [reminder] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-01T00:37:06.621+01:00  INFO 9248 --- [reminder] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-01T00:37:06.622+01:00  WARN 9248 --- [reminder] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-12-01T00:37:06.801+01:00  WARN 9248 --- [reminder] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01T00:37:07.614+01:00  INFO 9248 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-12-01T00:37:07.627+01:00  INFO 9248 --- [reminder] [main] c.example.reminder.ReminderApplication   : Started ReminderApplication in 7.954 seconds (process running for 8.389)
+2025-12-01T00:37:09.841+01:00  INFO 9248 --- [reminder] [http-nio-9090-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-01T00:37:09.841+01:00  INFO 9248 --- [reminder] [http-nio-9090-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-01T00:37:09.842+01:00  INFO 9248 --- [reminder] [http-nio-9090-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-01T00:37:49.020+01:00  INFO 9248 --- [reminder] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:37:49.022+01:00  INFO 9248 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-01T00:37:49.024+01:00  INFO 9248 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-01T00:37:53.174+01:00  INFO 37552 --- [reminder] [main] c.example.reminder.ReminderApplication   : Starting ReminderApplication using Java 21.0.8 with PID 37552 (C:\Java-Spring\reminder\target\classes started by zhila in C:\Java-Spring\reminder)
+2025-12-01T00:37:53.193+01:00  INFO 37552 --- [reminder] [main] c.example.reminder.ReminderApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-12-01T00:37:54.614+01:00  INFO 37552 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-01T00:37:54.725+01:00  INFO 37552 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95 ms. Found 4 JPA repository interfaces.
+2025-12-01T00:37:55.705+01:00  INFO 37552 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-12-01T00:37:55.730+01:00  INFO 37552 --- [reminder] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-01T00:37:55.731+01:00  INFO 37552 --- [reminder] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-12-01T00:37:55.816+01:00  INFO 37552 --- [reminder] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-01T00:37:55.816+01:00  INFO 37552 --- [reminder] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2563 ms
+2025-12-01T00:37:56.080+01:00  INFO 37552 --- [reminder] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-01T00:37:56.171+01:00  INFO 37552 --- [reminder] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-12-01T00:37:56.223+01:00  INFO 37552 --- [reminder] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-01T00:37:56.669+01:00  INFO 37552 --- [reminder] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-01T00:37:56.694+01:00  INFO 37552 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-01T00:37:56.889+01:00  INFO 37552 --- [reminder] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@500ec769
+2025-12-01T00:37:56.889+01:00  INFO 37552 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-01T00:37:56.917+01:00  WARN 37552 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-01T00:37:56.931+01:00  WARN 37552 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-01T00:37:57.943+01:00  INFO 37552 --- [reminder] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-01T00:37:58.045+01:00  INFO 37552 --- [reminder] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:37:58.380+01:00  INFO 37552 --- [reminder] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-01T00:37:59.358+01:00  INFO 37552 --- [reminder] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-01T00:37:59.358+01:00  WARN 37552 --- [reminder] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-12-01T00:37:59.521+01:00  WARN 37552 --- [reminder] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01T00:38:00.292+01:00  INFO 37552 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-12-01T00:38:00.324+01:00  INFO 37552 --- [reminder] [main] c.example.reminder.ReminderApplication   : Started ReminderApplication in 7.701 seconds (process running for 8.156)
+2025-12-01T00:38:05.326+01:00  INFO 37552 --- [reminder] [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-01T00:38:05.327+01:00  INFO 37552 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-01T00:38:05.328+01:00  INFO 37552 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-01T00:41:00.752+01:00  INFO 37552 --- [reminder] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:41:00.755+01:00  INFO 37552 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-01T00:41:00.765+01:00  INFO 37552 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-01T00:41:04.804+01:00  INFO 26504 --- [reminder] [main] c.example.reminder.ReminderApplication   : Starting ReminderApplication using Java 21.0.8 with PID 26504 (C:\Java-Spring\reminder\target\classes started by zhila in C:\Java-Spring\reminder)
+2025-12-01T00:41:04.808+01:00  INFO 26504 --- [reminder] [main] c.example.reminder.ReminderApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-12-01T00:41:06.058+01:00  INFO 26504 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-01T00:41:06.149+01:00  INFO 26504 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81 ms. Found 4 JPA repository interfaces.
+2025-12-01T00:41:07.129+01:00  INFO 26504 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-12-01T00:41:07.151+01:00  INFO 26504 --- [reminder] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-01T00:41:07.152+01:00  INFO 26504 --- [reminder] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-12-01T00:41:07.251+01:00  INFO 26504 --- [reminder] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-01T00:41:07.252+01:00  INFO 26504 --- [reminder] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2377 ms
+2025-12-01T00:41:07.571+01:00  INFO 26504 --- [reminder] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-01T00:41:07.684+01:00  INFO 26504 --- [reminder] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-12-01T00:41:07.745+01:00  INFO 26504 --- [reminder] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-01T00:41:08.134+01:00  INFO 26504 --- [reminder] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-01T00:41:08.170+01:00  INFO 26504 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-01T00:41:08.334+01:00  INFO 26504 --- [reminder] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5b3755f4
+2025-12-01T00:41:08.337+01:00  INFO 26504 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-01T00:41:08.377+01:00  WARN 26504 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-01T00:41:08.378+01:00  WARN 26504 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-01T00:41:09.430+01:00  INFO 26504 --- [reminder] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-01T00:41:09.525+01:00  INFO 26504 --- [reminder] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:41:09.806+01:00  INFO 26504 --- [reminder] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-01T00:41:10.853+01:00  INFO 26504 --- [reminder] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-01T00:41:10.855+01:00  WARN 26504 --- [reminder] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-12-01T00:41:11.011+01:00  WARN 26504 --- [reminder] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01T00:41:11.780+01:00  INFO 26504 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-12-01T00:41:11.794+01:00  INFO 26504 --- [reminder] [main] c.example.reminder.ReminderApplication   : Started ReminderApplication in 7.58 seconds (process running for 8.028)
+2025-12-01T00:41:16.688+01:00  INFO 26504 --- [reminder] [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-01T00:41:16.688+01:00  INFO 26504 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-01T00:41:16.689+01:00  INFO 26504 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-01T00:43:54.178+01:00  INFO 26504 --- [reminder] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:43:54.194+01:00  INFO 26504 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-01T00:43:54.196+01:00  INFO 26504 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-01T00:43:58.209+01:00  INFO 35600 --- [reminder] [main] c.example.reminder.ReminderApplication   : Starting ReminderApplication using Java 21.0.8 with PID 35600 (C:\Java-Spring\reminder\target\classes started by zhila in C:\Java-Spring\reminder)
+2025-12-01T00:43:58.217+01:00  INFO 35600 --- [reminder] [main] c.example.reminder.ReminderApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-12-01T00:43:59.345+01:00  INFO 35600 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-01T00:43:59.432+01:00  INFO 35600 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 4 JPA repository interfaces.
+2025-12-01T00:44:00.390+01:00  INFO 35600 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-12-01T00:44:00.411+01:00  INFO 35600 --- [reminder] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-01T00:44:00.411+01:00  INFO 35600 --- [reminder] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-12-01T00:44:00.501+01:00  INFO 35600 --- [reminder] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-01T00:44:00.501+01:00  INFO 35600 --- [reminder] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2219 ms
+2025-12-01T00:44:00.775+01:00  INFO 35600 --- [reminder] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-01T00:44:00.873+01:00  INFO 35600 --- [reminder] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-12-01T00:44:00.933+01:00  INFO 35600 --- [reminder] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-01T00:44:01.386+01:00  INFO 35600 --- [reminder] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-01T00:44:01.427+01:00  INFO 35600 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-01T00:44:01.631+01:00  INFO 35600 --- [reminder] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7aa3857b
+2025-12-01T00:44:01.647+01:00  INFO 35600 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-01T00:44:01.694+01:00  WARN 35600 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-01T00:44:01.696+01:00  WARN 35600 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-01T00:44:02.731+01:00  INFO 35600 --- [reminder] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-01T00:44:02.829+01:00  INFO 35600 --- [reminder] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:44:03.165+01:00  INFO 35600 --- [reminder] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-01T00:44:04.163+01:00  INFO 35600 --- [reminder] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-01T00:44:04.163+01:00  WARN 35600 --- [reminder] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-12-01T00:44:04.310+01:00  WARN 35600 --- [reminder] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01T00:44:05.198+01:00  INFO 35600 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-12-01T00:44:05.212+01:00  INFO 35600 --- [reminder] [main] c.example.reminder.ReminderApplication   : Started ReminderApplication in 7.559 seconds (process running for 8.003)
+2025-12-01T00:44:10.333+01:00  INFO 35600 --- [reminder] [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-01T00:44:10.334+01:00  INFO 35600 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-01T00:44:10.336+01:00  INFO 35600 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-01T00:45:50.261+01:00  INFO 35600 --- [reminder] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:45:50.277+01:00  INFO 35600 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-01T00:45:50.277+01:00  INFO 35600 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-01T00:45:54.177+01:00  INFO 19608 --- [reminder] [main] c.example.reminder.ReminderApplication   : Starting ReminderApplication using Java 21.0.8 with PID 19608 (C:\Java-Spring\reminder\target\classes started by zhila in C:\Java-Spring\reminder)
+2025-12-01T00:45:54.181+01:00  INFO 19608 --- [reminder] [main] c.example.reminder.ReminderApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-12-01T00:45:55.387+01:00  INFO 19608 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-01T00:45:55.466+01:00  INFO 19608 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 4 JPA repository interfaces.
+2025-12-01T00:45:56.371+01:00  INFO 19608 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-12-01T00:45:56.403+01:00  INFO 19608 --- [reminder] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-01T00:45:56.403+01:00  INFO 19608 --- [reminder] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-12-01T00:45:56.517+01:00  INFO 19608 --- [reminder] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-01T00:45:56.517+01:00  INFO 19608 --- [reminder] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2271 ms
+2025-12-01T00:45:56.832+01:00  INFO 19608 --- [reminder] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-01T00:45:56.932+01:00  INFO 19608 --- [reminder] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-12-01T00:45:56.988+01:00  INFO 19608 --- [reminder] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-01T00:45:57.416+01:00  INFO 19608 --- [reminder] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-01T00:45:57.450+01:00  INFO 19608 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-01T00:45:57.605+01:00  INFO 19608 --- [reminder] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c011855
+2025-12-01T00:45:57.621+01:00  INFO 19608 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-01T00:45:57.652+01:00  WARN 19608 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-01T00:45:57.652+01:00  WARN 19608 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-01T00:45:58.676+01:00  INFO 19608 --- [reminder] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-01T00:45:58.771+01:00  INFO 19608 --- [reminder] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:45:59.116+01:00  INFO 19608 --- [reminder] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-01T00:46:00.069+01:00  INFO 19608 --- [reminder] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-01T00:46:00.069+01:00  WARN 19608 --- [reminder] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-12-01T00:46:00.243+01:00  WARN 19608 --- [reminder] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01T00:46:01.019+01:00  INFO 19608 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-12-01T00:46:01.044+01:00  INFO 19608 --- [reminder] [main] c.example.reminder.ReminderApplication   : Started ReminderApplication in 7.42 seconds (process running for 7.86)
+2025-12-01T00:46:05.807+01:00  INFO 19608 --- [reminder] [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-01T00:46:05.807+01:00  INFO 19608 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-01T00:46:05.808+01:00  INFO 19608 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-01T00:47:15.690+01:00  INFO 19608 --- [reminder] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:47:15.693+01:00  INFO 19608 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-01T00:47:15.701+01:00  INFO 19608 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-01T00:47:19.707+01:00  INFO 38784 --- [reminder] [main] c.example.reminder.ReminderApplication   : Starting ReminderApplication using Java 21.0.8 with PID 38784 (C:\Java-Spring\reminder\target\classes started by zhila in C:\Java-Spring\reminder)
+2025-12-01T00:47:19.710+01:00  INFO 38784 --- [reminder] [main] c.example.reminder.ReminderApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-12-01T00:47:20.899+01:00  INFO 38784 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-01T00:47:21.000+01:00  INFO 38784 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 88 ms. Found 4 JPA repository interfaces.
+2025-12-01T00:47:22.095+01:00  INFO 38784 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-12-01T00:47:22.120+01:00  INFO 38784 --- [reminder] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-01T00:47:22.120+01:00  INFO 38784 --- [reminder] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-12-01T00:47:22.216+01:00  INFO 38784 --- [reminder] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-01T00:47:22.216+01:00  INFO 38784 --- [reminder] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2440 ms
+2025-12-01T00:47:22.480+01:00  INFO 38784 --- [reminder] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-01T00:47:22.575+01:00  INFO 38784 --- [reminder] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-12-01T00:47:22.629+01:00  INFO 38784 --- [reminder] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-01T00:47:23.036+01:00  INFO 38784 --- [reminder] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-01T00:47:23.081+01:00  INFO 38784 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-01T00:47:23.290+01:00  INFO 38784 --- [reminder] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@238ad211
+2025-12-01T00:47:23.293+01:00  INFO 38784 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-01T00:47:23.341+01:00  WARN 38784 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-01T00:47:23.343+01:00  WARN 38784 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-01T00:47:24.434+01:00  INFO 38784 --- [reminder] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-01T00:47:24.529+01:00  INFO 38784 --- [reminder] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:47:24.993+01:00  INFO 38784 --- [reminder] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-01T00:47:26.137+01:00  INFO 38784 --- [reminder] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-01T00:47:26.138+01:00  WARN 38784 --- [reminder] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-12-01T00:47:26.323+01:00  WARN 38784 --- [reminder] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01T00:47:27.174+01:00  INFO 38784 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-12-01T00:47:27.189+01:00  INFO 38784 --- [reminder] [main] c.example.reminder.ReminderApplication   : Started ReminderApplication in 8.027 seconds (process running for 8.465)
+2025-12-01T00:47:27.478+01:00  INFO 38784 --- [reminder] [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-01T00:47:27.478+01:00  INFO 38784 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-01T00:47:27.479+01:00  INFO 38784 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-01T00:48:26.555+01:00  INFO 38784 --- [reminder] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:48:26.562+01:00  INFO 38784 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-01T00:48:26.571+01:00  INFO 38784 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-01T00:48:30.683+01:00  INFO 15120 --- [reminder] [main] c.example.reminder.ReminderApplication   : Starting ReminderApplication using Java 21.0.8 with PID 15120 (C:\Java-Spring\reminder\target\classes started by zhila in C:\Java-Spring\reminder)
+2025-12-01T00:48:30.688+01:00  INFO 15120 --- [reminder] [main] c.example.reminder.ReminderApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-12-01T00:48:31.882+01:00  INFO 15120 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-01T00:48:31.961+01:00  INFO 15120 --- [reminder] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 4 JPA repository interfaces.
+2025-12-01T00:48:32.898+01:00  INFO 15120 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-12-01T00:48:32.921+01:00  INFO 15120 --- [reminder] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-01T00:48:32.921+01:00  INFO 15120 --- [reminder] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-12-01T00:48:33.015+01:00  INFO 15120 --- [reminder] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-01T00:48:33.015+01:00  INFO 15120 --- [reminder] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2261 ms
+2025-12-01T00:48:33.259+01:00  INFO 15120 --- [reminder] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-01T00:48:33.354+01:00  INFO 15120 --- [reminder] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-12-01T00:48:33.421+01:00  INFO 15120 --- [reminder] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-01T00:48:33.803+01:00  INFO 15120 --- [reminder] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-01T00:48:33.843+01:00  INFO 15120 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-01T00:48:34.002+01:00  INFO 15120 --- [reminder] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7aa3857b
+2025-12-01T00:48:34.002+01:00  INFO 15120 --- [reminder] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-01T00:48:34.041+01:00  WARN 15120 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-01T00:48:34.049+01:00  WARN 15120 --- [reminder] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-01T00:48:35.024+01:00  INFO 15120 --- [reminder] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-01T00:48:35.116+01:00  INFO 15120 --- [reminder] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:48:35.457+01:00  INFO 15120 --- [reminder] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-01T00:48:36.442+01:00  INFO 15120 --- [reminder] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-12-01T00:48:36.442+01:00  WARN 15120 --- [reminder] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-12-01T00:48:36.596+01:00  WARN 15120 --- [reminder] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01T00:48:37.383+01:00  INFO 15120 --- [reminder] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-12-01T00:48:37.401+01:00  INFO 15120 --- [reminder] [main] c.example.reminder.ReminderApplication   : Started ReminderApplication in 7.279 seconds (process running for 7.713)
+2025-12-01T00:48:41.862+01:00  INFO 15120 --- [reminder] [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-01T00:48:41.862+01:00  INFO 15120 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-01T00:48:41.864+01:00  INFO 15120 --- [reminder] [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-01T00:51:56.780+01:00  INFO 15120 --- [reminder] [http-nio-9090-exec-5] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
+2025-12-01T00:53:47.986+01:00  INFO 15120 --- [reminder] [http-nio-9090-exec-5] c.e.reminder.controller.EventController  : Post /api/events -> created id=5 , title=Gym Workout
+2025-12-01T00:53:50.444+01:00  INFO 15120 --- [reminder] [http-nio-9090-exec-8] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
+2025-12-01T00:54:14.560+01:00  INFO 15120 --- [reminder] [http-nio-9090-exec-4] c.e.reminder.controller.EventController  : Get /api/events/paged -> page=0 , size=2 , sortBy=id , direction=asc , afterDate=null , search=null
+2025-12-01T00:54:55.216+01:00  INFO 15120 --- [reminder] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-01T00:54:55.218+01:00  INFO 15120 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-01T00:54:55.227+01:00  INFO 15120 --- [reminder] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

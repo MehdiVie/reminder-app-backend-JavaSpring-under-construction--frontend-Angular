@@ -1,6 +1,8 @@
 package com.example.reminder.service;
 import com.example.reminder.dto.EventRequest;
 import com.example.reminder.dto.EventResponse;
+import com.example.reminder.dto.MoveOccurrenceRequest;
+import com.example.reminder.exception.BadRequestException;
 import com.example.reminder.exception.ResourceNotFoundException;
 import com.example.reminder.model.Event;
 import com.example.reminder.model.RecurrenceType;
@@ -17,6 +19,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 @Slf4j
@@ -261,7 +265,6 @@ public class EventService {
             case DAILY -> nextDate = nextDate.plusDays(interval);
             case WEEKLY -> nextDate = nextDate.plusWeeks(interval);
             case MONTHLY -> nextDate = nextDate.plusMonths(interval);
-            case QUARTERLY -> nextDate = nextDate.plusMonths(3L * interval);
             case YEARLY -> nextDate = nextDate.plusYears(interval);
         }
 
@@ -282,7 +285,6 @@ public class EventService {
                 case DAILY -> nextReminder = nextReminder.plusDays(interval);
                 case WEEKLY -> nextReminder = nextReminder.plusWeeks(interval);
                 case MONTHLY -> nextReminder = nextReminder.plusMonths(interval);
-                case QUARTERLY -> nextReminder = nextReminder.plusMonths(3L * interval);
                 case YEARLY -> nextReminder = nextReminder.plusYears(interval);
             }
             next.setReminderTime(nextReminder);
@@ -294,6 +296,248 @@ public class EventService {
 
         repo.save(next);
     }
+
+    public List<EventResponse> getCalendarEvents(User user,LocalDate start,LocalDate end) {
+
+        List<EventResponse> result = new ArrayList<>();
+
+        // single events in this range
+        List<Event> singles = repo.findSinglesInRange(user,start,end);
+        System.out.println("------Singles----"+singles);
+        singles.forEach(e-> result.add(EventResponse.fromEntity(e)));
+
+        // exception events in this range
+        List<Event> exceptions = repo.findExceptionsInRange(user,start,end);
+        System.out.println("------Exceptions----"+exceptions);
+        Map <Long , List<Event>> exceptionsByParent =  new HashMap<>();
+        for (Event ex :  exceptions) {
+            if (ex.getParentEventId() != null) {
+                exceptionsByParent
+                        .computeIfAbsent(ex.getParentEventId(), k -> new ArrayList<>())
+                        .add(ex);
+            }
+        }
+
+        // recurring masters
+        List<Event> masters = repo.findRecurringMasterAffectingRange(user,start,end);
+        System.out.println("------Masters----"+masters);
+        for (Event master :  masters) {
+            List<Event> exForThisMaster = exceptionsByParent.getOrDefault(master.getId(),List.of());
+            System.out.println("------INNNN   Masters----"+master.getEventDate());
+            result.addAll(
+                expandMastersIntoOcurrences(master,start,end,exForThisMaster)
+            );
+        }
+
+        for(Event ex:exceptions) {
+            result.add(EventResponse.fromEntity(ex));
+        }
+        System.out.println("------All----"+result);
+
+        return result;
+
+    }
+
+    private List<EventResponse> expandMastersIntoOcurrences(
+            Event master,
+            LocalDate rangeStart, LocalDate rangeEnd,
+            List<Event> exceptionForThisMaster
+    ) {
+
+        List<EventResponse> list = new ArrayList<>();
+
+        int interval = (master.getRecurrenceInterval() != null || master.getRecurrenceInterval() > 0)
+                ? master.getRecurrenceInterval() : 1;
+
+        LocalDate cursor = master.getEventDate();
+        System.out.println("------INNNN Z  Expand----"+cursor);
+        while (cursor.isBefore(rangeStart)) {
+            cursor = addInterval(cursor,master.getRecurrenceType(),interval);
+
+        }
+
+        LocalDate to = (master.getRecurrenceEndDate() != null &&
+                master.getRecurrenceEndDate().isBefore(rangeEnd))
+                ? master.getRecurrenceEndDate() : rangeEnd;
+
+        Map<LocalDate , Event> exByOriginalDate = new HashMap<>();
+        for (Event ex :  exceptionForThisMaster) {
+            if (ex.getOriginalDate() != null) {
+                exByOriginalDate.put(ex.getOriginalDate(), ex);
+            }
+        }
+
+        while (!cursor.isAfter(to)) {
+
+            if (exByOriginalDate.containsKey(cursor)) {
+                list.add(EventResponse.fromEntity(exByOriginalDate.get(cursor)));
+            } else {
+                list.add(createOccurrenceFromMaster(master, cursor));
+            }
+
+            cursor = addInterval(cursor, master.getRecurrenceType(), interval);
+        }
+
+        return list;
+    }
+
+    public void moveOccurrence(User user, Long id, MoveOccurrenceRequest req) {
+        Event event = repo.findById(id)
+                .orElseThrow(()-> new BadRequestException("Event with id " + id + " not found."));
+
+        if (event.getUser().getId().equals(user.getId())) {
+            throw new BadRequestException("You are not allowed to move this event.");
+        }
+
+        String mode = req.getMode() != null ? req.getMode().toUpperCase() : "SINGLE";
+        if (!mode.equals("SINGLE")) {
+            throw new BadRequestException("Only single mode is allowed for this event.");
+        }
+
+        LocalDate originalDate = req.getOriginalDate();
+        LocalDate newDate = req.getNewDate();
+
+        if (newDate.isBefore(LocalDate.now())) {
+            throw new BadRequestException("New date must be in the future.");
+        }
+
+        if (event.isException()) {
+            moveExistingException(event, newDate);
+            return;
+        }
+
+        if (event.getRecurrenceType() == null || event.getRecurrenceType() == RecurrenceType.NONE) {
+            throw new  BadRequestException("This event is not recurring.");
+        }
+
+        if (originalDate.isBefore(event.getEventDate()) ||
+                (event.getRecurrenceEndDate() != null && originalDate.isAfter(event.getRecurrenceEndDate()))
+        ) {
+            throw new  BadRequestException("Original date is outside the recurrence range.");
+        }
+
+        Optional<Event> existingExceptionOpt =
+                repo.findByParentEventIdAndOriginalDate(event.getId(), originalDate);
+
+        Event ex;
+        if (existingExceptionOpt.isPresent()) {
+            ex = existingExceptionOpt.get();
+        } else {
+            ex = new Event();
+            ex.setTitle(event.getTitle());
+            ex.setDescription(event.getDescription());
+            ex.setParentEventId(event.getId());
+            ex.setUser(event.getUser());
+
+            ex.setException(true);
+            ex.setOriginalDate(originalDate);
+
+            ex.setRecurrenceType(RecurrenceType.NONE);
+            ex.setRecurrenceInterval(null);
+            ex.setRecurrenceEndDate(null);
+        }
+
+        ex.setEventDate(newDate);
+
+        if (event.getReminderTime() != null) {
+            ex.setReminderTime(checkReminderTime(event.getReminderTime(), event.getEventDate()));
+        } else {
+            ex.setReminderTime(null);
+        }
+
+        ex.setReminderSent(false);
+        ex.setReminderSentTime(null);
+
+        repo.save(ex);
+    }
+
+    private void moveExistingException(Event ex, LocalDate newDate) {
+        if (newDate.isBefore(LocalDate.now())) {
+            throw new BadRequestException("New date must be in the future.");
+        }
+
+        if (ex.getReminderTime() != null) {
+            ex.setReminderTime(checkReminderTime(ex.getReminderTime(), ex.getEventDate()));
+        }
+
+        ex.setEventDate(newDate);
+        ex.setReminderSent(false);
+        ex.setReminderSentTime(null);
+
+        repo.save(ex);
+
+    }
+
+    public void moveEventDate(User user,Long  eventId, LocalDate newDate) {
+
+        Event e = repo.findById(eventId)
+                .orElseThrow(() -> new BadRequestException("Event not found"));
+
+
+        if (!e.getUser().getId().equals(user.getId())) {
+            throw new BadRequestException("You are not allowed to move this event.");
+        }
+
+
+        if (e.getReminderTime() != null) {
+            e.setReminderTime(checkReminderTime(e.getReminderTime(), e.getEventDate()));
+        }
+
+        e.setEventDate(newDate);
+        repo.save(e);
+    }
+
+
+    private LocalDateTime checkReminderTime(LocalDateTime reminderTime,
+                                            LocalDate eventDate) {
+
+            LocalDate reminderDateBase =  reminderTime.toLocalDate();
+            LocalTime reminderTimeBase = reminderTime.toLocalTime();
+            long daysBetween = ChronoUnit.DAYS.between(reminderDateBase , eventDate);
+            LocalDateTime newReminderTime = LocalDateTime.of(
+                    reminderDateBase.plusDays(daysBetween),
+                    reminderTimeBase
+            );
+            if (newReminderTime.isBefore(LocalDateTime.now())) {
+                throw new BadRequestException("New reminderTime would be in the past.");
+            }
+            return newReminderTime;
+    }
+
+    private LocalDate addInterval(LocalDate d, RecurrenceType type, int interval) {
+        return switch (type) {
+            case DAILY -> d.plusDays(interval);
+            case WEEKLY -> d.plusWeeks(interval);
+            case MONTHLY -> d.plusMonths(interval);
+            case YEARLY -> d.plusYears(interval);
+            default -> d;
+        };
+    }
+
+    private EventResponse createOccurrenceFromMaster(Event master, LocalDate date) {
+        EventResponse dto = new EventResponse();
+
+        dto.setId(master.getId());
+        dto.setTitle(master.getTitle());
+        dto.setDescription(master.getDescription());
+        dto.setEventDate(date);
+
+        if (master.getReminderTime() != null) {
+            dto.setReminderTime(checkReminderTime(master.getReminderTime(), master.getEventDate()));
+        }
+
+        dto.setRecurrenceType(master.getRecurrenceType());
+        dto.setRecurrenceInterval(master.getRecurrenceInterval());
+        dto.setRecurrenceEndDate(master.getRecurrenceEndDate());
+
+        dto.setParentEventId(master.getId());
+        dto.setException(false);
+        dto.setOriginalDate(date);
+
+        return dto;
+    }
+
+
 
 
 }

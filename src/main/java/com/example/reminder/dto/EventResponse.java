@@ -28,11 +28,18 @@ public class EventResponse {
                 e.getReminderTime(),
                 e.getRecurrenceType(),
                 e.getRecurrenceInterval(),
-                e.getRecurrenceEndDate()
+                e.getRecurrenceEndDate(),
+                e.getParentEventId(),
+                e.isException(),
+                e.getOriginalDate()
         );
     }
 
     private RecurrenceType recurrenceType;
     private Integer recurrenceInterval;
     private LocalDate recurrenceEndDate;
+
+    private Long parentEventId;
+    private boolean isException;
+    private LocalDate originalDate;
 }

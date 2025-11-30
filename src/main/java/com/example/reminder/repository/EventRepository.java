@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface EventRepository extends JpaRepository<Event, Long> {
@@ -91,4 +92,34 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     @Query("SELECT e.eventDate as date , COUNT(e) as cnt FROM Event e WHERE " +
             " e.eventDate >= :from AND e.eventDate <= :to GROUP BY  e.eventDate ORDER BY  e.eventDate")
     List<Object[]> eventsPerDaySince(@Param("from") LocalDate from,@Param("to") LocalDate to);
+
+    @Query("SELECT e FROM Event e where e.user = :user AND" +
+            " e.eventDate between :start AND :end" +
+            " order by e.eventDate asc" )
+    List<Event> findByUserAndEventDateBetween (@Param("user") User user
+            ,@Param("start") LocalDate start ,@Param("end") LocalDate end);
+
+
+    @Query("SELECT e from Event e where e.user = :user " +
+            " AND e.isException = false AND e.recurrenceType = 'NONE'" +
+            " AND e.eventDate between :start AND :end ")
+    List<Event> findSinglesInRange(@Param("user") User user
+            ,@Param("start") LocalDate start ,@Param("end") LocalDate end);
+
+    @Query("SELECT e from Event e where e.user = :user " +
+            " AND e.isException = false AND e.recurrenceType <> 'NONE' AND e.eventDate <= :end " +
+            " AND (e.recurrenceEndDate is null OR e.eventDate > :start ) ")
+    List<Event> findRecurringMasterAffectingRange(@Param("user") User user
+            ,@Param("start") LocalDate start ,@Param("end") LocalDate end);
+
+    @Query("SELECT e from Event e where e.user = :user " +
+            " AND e.isException = true " +
+            " AND e.eventDate between :start AND :end ")
+    List<Event> findExceptionsInRange(@Param("user") User user
+            ,@Param("start") LocalDate start ,@Param("end") LocalDate end);
+
+    Optional<Event> findByParentEventIdAndOriginalDate(@Param("parentEventId") Long parentEventId,
+                                                       @Param("originalDate") LocalDate originalDate);
+
+
 }

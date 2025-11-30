@@ -1,14 +1,15 @@
 package com.example.reminder.controller;
-import com.example.reminder.dto.ApiResponse;
-import com.example.reminder.dto.EventRequest;
-import com.example.reminder.dto.EventResponse;
-import com.example.reminder.dto.PageResponse;
+import com.example.reminder.dto.*;
+import com.example.reminder.exception.BadRequestException;
 import com.example.reminder.model.Event;
 import com.example.reminder.exception.ResourceNotFoundException;
+import com.example.reminder.model.User;
 import com.example.reminder.security.AuthContext;
 import com.example.reminder.service.EventService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cglib.core.Local;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -166,6 +168,58 @@ public class EventController {
         return ResponseEntity.ok(new ApiResponse<>("success","Event Deleted.",eventResponse));
     }
 
+    @GetMapping("/calendar")
+    public ResponseEntity<ApiResponse<List<EventResponse>>> getCalendarEvents(
+            @RequestParam("start") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate start,
+            @RequestParam("end") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate end
+    ) {
+        User user = authContext.getCurrentUser();
+
+        List<EventResponse> list = service.getCalendarEvents(user, start, end);
+
+        return ResponseEntity.ok(new ApiResponse<>(
+                "success" , "Calendar events fetched" , list
+        ));
+
+    }
+
+    @PutMapping("/{id}/move-date")
+    public ResponseEntity<ApiResponse<Void>> moveEventDate(
+            @PathVariable Long id ,
+            @RequestBody Map<String,String> body
+            )
+    {
+        User user = authContext.getCurrentUser();
+        String dateStr = body.get("eventDate");
+
+        if(dateStr == null) {
+            throw new BadRequestException("Event date must be mindestense tommorrow.");
+        }
+
+        LocalDate newDate = LocalDate.parse(dateStr);
+        if (newDate.isBefore(LocalDate.now().plusDays(1))) {
+            throw new BadRequestException("New date must be mindestense tommorrow.");
+        }
+        service.moveEventDate(user , id , newDate);
+
+        return ResponseEntity.ok(
+                new ApiResponse<>("success", "event moved",null)
+        );
+    }
+
+    @PutMapping("/{id}/move-occurrence")
+    public ResponseEntity<ApiResponse<Void>> moveOccurrence(
+            @PathVariable Long id,
+            @RequestBody @Valid MoveOccurrenceRequest request
+    ) {
+        User user = authContext.getCurrentUser();
+
+        service.moveOccurrence(user, id, request);
+
+        return ResponseEntity.ok(
+                new ApiResponse<>("success", "Occurrence moved", null)
+        );
+    }
 
 
 }

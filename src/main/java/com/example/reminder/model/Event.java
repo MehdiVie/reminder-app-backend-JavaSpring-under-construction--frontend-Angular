@@ -57,4 +57,10 @@ public class Event {
 
     private LocalDate recurrenceEndDate;
 
+    private  Long parentEventId;
+    private  LocalDate originalDate;
+    private  boolean isException;
+
+    private String recurrenceRule;
+
 }
